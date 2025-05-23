@@ -13,23 +13,22 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-//Lombok
 @Data
 @NoArgsConstructor
 @AllArgsConstructor 
 @Builder
 
 //Jakarta
-@Entity(name="TipoDocumentoEntity") 
-@Table(name="tipodocumento")
-public class TipoDocumentoEntity implements Serializable{
+@Entity(name="ColorEntity") 
+@Table(name="Color")
+public class ColorEntity implements Serializable{
 	private static final long serialVersionUID = 1L;
-	@Id
-	@Column(name="codtipd")
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id //define la clave primaria
+	@Column(name="codColor")//define la columna con la cual se relaciona
+	@GeneratedValue(strategy = GenerationType.IDENTITY)//es para el auto incremento
 	private long code;
-	@Column(name="nomtipd", length = 30, nullable = false)
+	@Column(name="nomColor", length = 50, nullable = false)
 	private String nombre;
-	@Column(name="esttipd", nullable = false)
+	@Column(name="estado", nullable = false)
 	private boolean estado;
 }

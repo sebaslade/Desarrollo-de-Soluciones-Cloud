@@ -1,4 +1,4 @@
-# Nombre del Proyecto
+# Proyecto con spring
 
 Este proyecto está desarrollado en **Java** usando el framework **Spring** y una base de datos **MySQL**. Está diseñado para [describir brevemente qué hace tu proyecto: gestión de usuarios, sistema de inventario, ERP, etc.].
 

@@ -16,49 +16,51 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-//Lombok
 @Data
 @NoArgsConstructor
 @AllArgsConstructor 
 @Builder
 
 //Jakarta
-@Entity(name="ClienteEntity") 
-@Table(name="cliente")
-public class ClienteEntity implements Serializable{
+@Entity(name="EmpleadoEntity") 
+@Table(name="empleado")
+public class EmpleadoEntity implements Serializable{
 	private static final long serialVersionUID = 1L;
 	@Id
-	@Column(name="codcli")
+	@Column(name="codemp")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long code;
-	@Column(name="nomcli", length = 40, nullable = false)
+	@Column(name="nomemp", length = 40, nullable = false)
 	private String nombre;
-	@Column(name="apepcli", length = 40, nullable = false)
+	@Column(name="apepemp", length = 40, nullable = false)
 	private String apellidoPaterno;
-	@Column(name="apemcli", length = 40, nullable = false)
+	@Column(name="apememp", length = 30, nullable = false)
 	private String apellidoMaterno;
-	@Column(name="doccli", length = 15, nullable = false)
+	@Column(name="dniemp", length = 8, nullable = false)
 	private String numeroDocumento;
-	@Column(name="feccli", nullable = false)
+	@Column(name="fecemp", nullable = false)
 	private LocalDate fechaNacimiento;
-	@Column(name="dircli", length = 100, nullable = false)
+	@Column(name="diremp", length = 50, nullable = false)
 	private String direccion;
-	@Column(name="telcli", length = 7, nullable = false)
+	@Column(name="telemp", length = 7, nullable = false)
 	private String telefono;
-	@Column(name="celcli", length = 9, nullable = false)
+	@Column(name="celemp", length = 9, nullable = false)
 	private String celular;
-	@Column(name="corcli", length = 40, nullable = false)
+	@Column(name="coremp", length = 40, nullable = false)
 	private String correo;
-	@Column(name="estcli", nullable = false)
+	@Column(name="sexemp", length = 9,nullable = false)
+	private String sexoEmpleado;
+	@Column(name="usuemp", length = 40,nullable = false)
+	private String usuario;
+	@Column(name="claemp", length = 40,nullable = false)
+	private String clase;
+	@Column(name="estemp", nullable = false)
 	private boolean estado;
 	
 	@ManyToOne //relacion de muchos a uno
 	@JoinColumn(name="coddis",nullable = false)//foreignkey
 	private DistritoEntity distrito;
 	@ManyToOne 
-	@JoinColumn(name="codsex",nullable = false)
-	private SexoEntity sexo;
-	@ManyToOne 
-	@JoinColumn(name="codtipd",nullable = false)
-	private TipoDocumentoEntity tipodocumento;
+	@JoinColumn(name="codrol",nullable = false)
+	private RolEntity rol;
 }
