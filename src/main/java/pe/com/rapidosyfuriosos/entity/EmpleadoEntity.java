@@ -53,7 +53,7 @@ public class EmpleadoEntity implements Serializable{
 	@Column(name="usuemp", length = 40,nullable = false)
 	private String usuario;
 	@Column(name="claemp", length = 40,nullable = false)
-	private String clase;
+	private String clave;
 	@Column(name="estemp", nullable = false)
 	private boolean estado;
 	

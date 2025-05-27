@@ -7,7 +7,7 @@ import pe.com.rapidosyfuriosos.entity.DistritoEntity;
 public interface DistritoService {
 	List<DistritoEntity> findAll();
 	List<DistritoEntity> findAllCustom();
-	DistritoEntity findById();
+	DistritoEntity findById(Long id);
 	DistritoEntity add(DistritoEntity obj);
 	DistritoEntity update(DistritoEntity obj, Long id);
 	DistritoEntity delete(Long id);

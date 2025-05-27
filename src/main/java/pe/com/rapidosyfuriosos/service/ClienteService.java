@@ -7,7 +7,7 @@ import pe.com.rapidosyfuriosos.entity.ClienteEntity;
 public interface ClienteService {
 	List<ClienteEntity> findAll();
 	List<ClienteEntity> findAllCustom();
-	ClienteEntity findById();
+	ClienteEntity findById(Long id);
 	ClienteEntity add(ClienteEntity obj);
 	ClienteEntity update(ClienteEntity obj, Long id);
 	ClienteEntity delete(Long id);

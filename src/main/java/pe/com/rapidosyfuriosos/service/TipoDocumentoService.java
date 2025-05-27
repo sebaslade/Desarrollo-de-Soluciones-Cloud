@@ -7,7 +7,7 @@ import pe.com.rapidosyfuriosos.entity.TipoDocumentoEntity;
 public interface TipoDocumentoService {
 	List<TipoDocumentoEntity> findAll();
 	List<TipoDocumentoEntity> findAllCustom();
-	TipoDocumentoEntity findById();
+	TipoDocumentoEntity findById(Long id);
 	TipoDocumentoEntity add(TipoDocumentoEntity obj);
 	TipoDocumentoEntity update(TipoDocumentoEntity obj, Long id);
 	TipoDocumentoEntity delete(Long id);
