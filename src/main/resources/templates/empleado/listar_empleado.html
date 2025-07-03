@@ -14,9 +14,9 @@
     <div class="container">
         <div class="mb-3">
             <div class="col-6">
-                <a href="registrar_empleado.html" class="btn btn-success">Registrar Empleado</a>
-                <a href="habilitar_empleado.html" class="btn btn-info">Habilitar Empleado</a>
-                <a href="/templates/menuprincipal.html" class="btn btn-secondary">Regresar</a>
+                <a th:href="@{/empleado/registro}" class="btn btn-success">Registrar Empleado</a>
+                <a th:href="@{/empleado/habilitar}" class="btn btn-info">Habilitar Empleado</a>
+                <a th:href="@{/menuprincipal}" class="btn btn-secondary">Regresar</a>
             </div>
         </div>
         <h1>Listado de empleados</h1>
@@ -36,32 +36,34 @@
                     <th scope="col">Correo</th>
                     <th scope="col">Sexo</th>
                     <th scope="col">Usuario</th>
-                    <th scope="col">Cod. Distrito</th>
-                    <th scope="col">Cod. Rol</th>
+                    <th scope="col">Clave</th>
                     <th scope="col">Estado</th>
+                    <th scope="col">Distrito</th>
+                    <th scope="col">Rol</th>
                     <th scope="col">Actualizar</th>
                     <th scope="col">Eliminar</th>
                 </tr>
             </thead>
             <tbody>
-                <tr class="table-active">
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>Mark</td>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>Mark</td>
-                    <td>Mark</td>
-                    <td>Mark</td>
-                    <td><a href="actualizar_empleado.html" class="btn btn-warning"><i class="bi bi-pen-fill"> Actualizar</i></a></td>
-                    <td><a href="#" class="btn btn-danger"><i class="bi bi-trash-fill"> Eliminar</i></a></td>
+                <tr th:each="emp : ${listaempleado}">
+                    <td th:text="${emp.code}"></td>
+                    <td th:text="${emp.nombre}"></td>
+                    <td th:text="${emp.apellidoPaterno}"></td>
+                    <td th:text="${emp.apellidoMaterno}"></td>
+                    <td th:text="${emp.numeroDocumento}"></td>
+                    <td th:text="${emp.fechaNacimiento}"></td>
+                    <td th:text="${emp.direccion}"></td>
+                    <td th:text="${emp.telefono}"></td>
+                    <td th:text="${emp.celular}"></td>
+                    <td th:text="${emp.correo}"></td>
+                    <td th:text="${emp.sexoEmpleado}"></td>
+                    <td th:text="${emp.usuario}"></td>
+                    <td th:text="${emp.clave}"></td>
+                    <td th:text="${emp.estado} ? 'Habilitado':'Deshabilitado'"></td>
+                    <td th:text="${emp.distrito.nombre}"></td>
+                    <td th:text="${emp.rol.nombre}"></td>
+                    <td><a th:href="@{/empleado/actualiza/{id}(id=${emp.code})}" class="btn btn-success">Actualizar</a></td>
+                    <td><a th:href="@{/empleado/eliminar/{id}(id=${emp.code})}" class="btn btn-danger">Eliminar</a></td>
                 </tr>
             </tbody>
         </table>

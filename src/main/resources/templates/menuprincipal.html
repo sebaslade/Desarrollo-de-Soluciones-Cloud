@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,12 +25,13 @@
             Mantenimiento simple
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="distrito/listar_distrito.html">Distritos</a></li>
-            <li><a class="dropdown-item" href="sexo/listar_sexo.html">Sexos</a></li>
-            <li><a class="dropdown-item" href="tipodocumento/listar_tipodocumento.html">Tipo de Documento</a></li>
-            <li><a class="dropdown-item" href="color/listar_color.html">Colores</a></li>
-            <li><a class="dropdown-item" href="marca/listar_marca.html">Marcas</a></li>
-            <li><a class="dropdown-item" href="rol/listar_rol.html">Roles</a></li>
+            <li><a class="dropdown-item" th:href="@{/distrito/listar}">Distritos</a></li>
+            <li><a class="dropdown-item" th:href="@{/sexo/listar}">Sexos</a></li>
+            <li><a class="dropdown-item" th:href="@{/tipodocumento/listar}">Tipo de Documento</a></li>
+            <li><a class="dropdown-item" th:href="@{/color/listar}">Colores</a></li>
+            <li><a class="dropdown-item" th:href="@{/marca/listar}">Marcas</a></li>
+            <li><a class="dropdown-item" th:href="@{/rol/listar}">Roles</a></li>
+            <li><a class="dropdown-item" th:href="@{/servicio/listar}">Servicios</a></li>
           </ul>
         </li>
         <li class="nav-item dropdown">
@@ -38,9 +39,9 @@
             Mantenimiento doble
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="cliente/listar_cliente.html">Clientes</a></li>
-            <li><a class="dropdown-item" href="empleado/listar_empleado.html">Empleados</a></li>
-            <li><a class="dropdown-item" href="vehiculo/listar_vehiculo.html">Vehiculos</a></li>
+            <li><a class="dropdown-item" th:href="@{/cliente/listar}">Clientes</a></li>
+            <li><a class="dropdown-item" th:href="@{/empleado/listar}">Empleados</a></li>
+            <li><a class="dropdown-item" th:href="@{/vehiculo/listar}">Vehiculos</a></li>
           </ul>
         </li>
       </ul>

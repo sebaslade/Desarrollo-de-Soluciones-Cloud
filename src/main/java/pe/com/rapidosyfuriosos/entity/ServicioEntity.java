@@ -12,24 +12,27 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import java.math.BigDecimal;
 
-//Lombok
 @Data
 @NoArgsConstructor
 @AllArgsConstructor 
 @Builder
 
-//Jakarta
-@Entity(name="SexoEntity") 
-@Table(name="sexo")
-public class SexoEntity implements Serializable{
+@Entity(name="ServicioEntity") 
+@Table(name="Servicio")
+public class ServicioEntity implements Serializable{
 	private static final long serialVersionUID = 1L;
-	@Id
-	@Column(name="codsex")
+	@Id 
+	@Column(name="codServicio")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long code;
-	@Column(name="nomsex", length = 20, nullable = false) 
+	@Column(name="nomServicio", length = 50, nullable = false)
 	private String nombre;
-	@Column(name="estsex", nullable = false)
+	@Column(name = "descripcion", columnDefinition = "TEXT")
+	private String descripcion;
+	@Column(name = "precio", nullable = false, precision = 10, scale = 2)
+	private BigDecimal precio;
+	@Column(name="estado", nullable = false)
 	private boolean estado;
 }

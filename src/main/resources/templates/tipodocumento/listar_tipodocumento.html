@@ -14,9 +14,9 @@
     <div class="container">
         <div class="mb-3">
             <div class="col-6">
-                <a href="registrar_tipodocumento.html" class="btn btn-success">Registrar Tipo de Documento</a>
-                <a href="habilitar_tipodocumento.html" class="btn btn-info">Habilitar Tipo de Documento</a>
-                <a href="/templates/menuprincipal.html" class="btn btn-secondary">Regresar</a>
+                <a th:href="@{/tipodocumento/registro}" class="btn btn-success">Registrar Tipo de Documento</a>
+                <a th:href="@{/tipodocumento/habilitar}" class="btn btn-info">Habilitar Tipo de Documento</a>
+                <a th:href="@{/menuprincipal}" class="btn btn-secondary">Regresar</a>
             </div>
         </div>
         <h1>Listado de distritos</h1>
@@ -32,19 +32,12 @@
                 </tr>
             </thead>
             <tbody>
-                <tr class="table-active">
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td><a href="actualizar_tipodocumento.html" class="btn btn-warning"><i class="bi bi-pen-fill"> Actualizar</i></a></td>
-                    <td><a href="#" class="btn btn-danger"><i class="bi bi-trash-fill"> Eliminar</i></a></td>
-                </tr>
-                <tr class="table-active">
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td><a href="actualizar_tipodocumento.html" class="btn btn-warning"><i class="bi bi-pen-fill"> Actualizar</i></a></td>
-                    <td><a href="#" class="btn btn-danger"><i class="bi bi-trash-fill"> Eliminar</i></a></td>
+                <tr th:each="tip : ${listatipodocumento}">
+                <th scope="row" th:text="${tip.code}"></th>
+                <td th:text="${tip.nombre}"></td>
+                <td th:text="${tip.estado == true ? 'Habilitado' : 'Deshabilitado'}"></td>
+                <td><a th:href="@{/tipodocumento/actualiza/{id}(id=${tip.code})}" class="btn btn-success">Actualizar</a></td>
+                <td><a th:href="@{/tipodocumento/eliminar/{id}(id=${tip.code})}" class="btn btn-danger">Eliminar</a></td>
                 </tr>
             </tbody>
         </table>

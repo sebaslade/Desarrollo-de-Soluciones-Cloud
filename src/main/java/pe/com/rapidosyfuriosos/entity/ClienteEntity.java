@@ -3,6 +3,8 @@ package pe.com.rapidosyfuriosos.entity;
 import java.io.Serializable;
 import java.time.LocalDate;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -39,6 +41,7 @@ public class ClienteEntity implements Serializable{
 	private String apellidoMaterno;
 	@Column(name="doccli", length = 15, nullable = false)
 	private String numeroDocumento;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column(name="feccli", nullable = false)
 	private LocalDate fechaNacimiento;
 	@Column(name="dircli", length = 100, nullable = false)

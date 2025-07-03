@@ -14,9 +14,9 @@
     <div class="container">
         <div class="mb-3">
             <div class="col-6">
-                <a href="registrar_rol.html" class="btn btn-success">Registrar Rol</a>
-                <a href="habilitar_rol.html" class="btn btn-info">Habilitar Rol</a>
-                <a href="/templates/menuprincipal.html" class="btn btn-secondary">Regresar</a>
+                <a th:href="@{/rol/registro}" class="btn btn-success">Registrar Rol</a>
+                <a th:href="@{/rol/habilitar}" class="btn btn-info">Habilitar Rol</a>
+                <a th:href="@{/menuprincipal}" class="btn btn-secondary">Regresar</a>
             </div>
         </div>
         <h1>Listado de roles</h1>
@@ -32,19 +32,12 @@
                 </tr>
             </thead>
             <tbody>
-                <tr class="table-active">
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td><a href="actualizar_distrito.html" class="btn btn-warning"><i class="bi bi-pen-fill"> Actualizar</i></a></td>
-                    <td><a href="#" class="btn btn-danger"><i class="bi bi-trash-fill"> Eliminar</i></a></td>
-                </tr>
-                <tr class="table-active">
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td><a href="actualizar_distrito.html" class="btn btn-warning"><i class="bi bi-pen-fill"> Actualizar</i></a></td>
-                    <td><a href="#" class="btn btn-danger"><i class="bi bi-trash-fill"> Eliminar</i></a></td>
+                <tr th:each="rol : ${listarol}">
+                <th scope="row" th:text="${rol.code}"></th>
+                <td th:text="${rol.nombre}"></td>
+                <td th:text="${rol.estado == true ? 'Habilitado' : 'Deshabilitado'}"></td>
+                <td><a th:href="@{/rol/actualiza/{id}(id=${rol.code})}" class="btn btn-success">Actualizar</a></td>
+                <td><a th:href="@{/rol/eliminar/{id}(id=${rol.code})}" class="btn btn-danger">Eliminar</a></td>
                 </tr>
             </tbody>
         </table>
